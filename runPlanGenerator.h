@@ -1,37 +1,33 @@
-#include <stdio.h>
+#include <iostream>
+#include <string>
 
 class Week
 {
   // data members
 private:
-  bool isOn; // data member for if the player is currently on the tile
-  char type; // types are T = Tile, C = Chest, D = Door, W = Wall, E = Exit
-  bool beenVisitedDFS; // for DFS 
+  int mileage; // total mileage run in the week
+
 public:
   // constructor
   Week();
 
   // methods
-  void setType(char c); // setter
-  char getType();  // getter
-  bool isOnTile(); // getter
-  void setOnTile(bool val); // setter
-  virtual int getGold(); // for Chest class
-  virtual char* getFileName(); // for Door class
-  virtual bool beenVisitedChest(); // for Chest class
-  virtual void setVisitedChest(); // for Chest class
-  bool beenVisited(); // for DFS
-  void setVisited(bool val); // for DFS
+  void addDay(); // Add a Day to the week
+  void print(); // Printing method for debug purposes atm.
+
 };
 
 class Day
 {
   // data members
 private:
-  ;
+  std::string runType; // Type of Run: Easy, Long, Tempo, Intervals
+
 public:
   // constructor
   Day();
 
   // methods
+  void setRunType(std::string runType);
+  std::string getRunType();
 };

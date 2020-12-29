@@ -2,5 +2,5 @@
 
 Week::Week()
 {
-    
+    mileage = 0;
 }
