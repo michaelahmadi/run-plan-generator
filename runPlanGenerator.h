@@ -1,5 +1,6 @@
 #include <iostream>
 #include <string>
+#include <vector>
 
 class Week
 {
@@ -8,13 +9,14 @@ private:
   int mileage; // total mileage run in the week
 
 public:
-  // constructor
+  // constructors
   Week();
+  Week(int mileage);
 
   // methods
   void addDay(); // Add a Day to the week
   void print(); // Printing method for debug purposes atm.
-
+  int getMileage();
 };
 
 class Day
