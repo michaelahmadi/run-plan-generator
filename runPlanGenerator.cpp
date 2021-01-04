@@ -1,18 +1,18 @@
-#include <runPlanGenerator.h>
+#include "runPlanGenerator.h"
 
-int main(int argc, char *argv[])
+int main(int argc, char **argv)
 {
     int startingMileage; // starting weekly mileage
     int goalMileage; // weekly mileage wanting to be achieved
 
     // a bit of command line input handling
-    if(argc < 3) // goal mileage was not given in the command line
+    if(argc < 3) // not enough command line inputs
     {
         std::cout << "Correct Usage: ./runPlanGenerator [startingMileage] [goalMileage]";
         return 0;
     }
-    startingMileage = *argv[1];
-    goalMileage = *argv[2];
+    startingMileage = std::stoi(argv[1]);
+    goalMileage = std::stoi(argv[2]);
     if(startingMileage < 10 || goalMileage < 10)
     {
         std::cout << "Please input a starting mileage and goal mileage that are each at least 10 miles";
@@ -25,23 +25,28 @@ int main(int argc, char *argv[])
 
     do
     {
-        if(currentMileage < goalMileage)
+        if(currentMileage < goalMileage)            // Push currentMileage, then increase or decrease currentMileage
             weeks.push_back(Week(currentMileage));
-        else
-            weeks.push_back(Week(goalMileage));
-        
-        if(stepCounter < 4)
+        else                                        // curr >= goal. Push goal mileage, then end.
         {
-            currentMileage = currentMileage + (0.1 * currentMileage); // increase next week's mileage by 10%
-            stepCounter++; // increasing week, increment counter
+            weeks.push_back(Week(goalMileage));
+            break;
+        }
+
+        // Increase or decrease mileage for the following week?
+        if(stepCounter < 3) // Less than 3 increasing weeks in a row
+        {
+            currentMileage = currentMileage + (int) (0.1 * currentMileage); // increase next week's mileage by 10%
+            stepCounter++;                                                  // increasing week, increment counter
         }
         else // 3 Steps up, now it's time for 1 step down
         {
-            currentMileage = weeks[weeks.size() - 2].getMileage(); // Go back to last week (before the one we just added)
-            stepCounter = 0;
+            currentMileage = weeks[weeks.size() - 2].getMileage();  // Change mileage back to last week (before the one we just added)
+            stepCounter = 0;                                        // decreasing week, reset counter
         }
     }
-    while(currentMileage <= goalMileage);
+    while(true);
 
     // next, print out contents of the weeks vector a .txt file
+    return 0;
 }
