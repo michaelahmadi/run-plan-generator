@@ -8,14 +8,14 @@ int main(int argc, char **argv)
     // a bit of command line input handling
     if(argc < 3) // not enough command line inputs
     {
-        std::cout << "Correct Usage: ./runPlanGenerator [startingMileage] [goalMileage]";
+        std::cout << "Correct Usage: ./runPlanGenerator [startingMileage] [goalMileage]\n";
         return 0;
     }
     startingMileage = std::stoi(argv[1]);
     goalMileage = std::stoi(argv[2]);
     if(startingMileage < 10 || goalMileage < 10)
     {
-        std::cout << "Please input a starting mileage and goal mileage that are each at least 10 miles";
+        std::cout << "Please input a starting mileage and goal mileage that are each at least 10 miles\n";
         return 0;
     }
     
@@ -48,5 +48,17 @@ int main(int argc, char **argv)
     while(true);
 
     // next, print out contents of the weeks vector a .txt file
+    std::ofstream myFile;
+    myFile.open("Running Plan.txt");
+    //myFile << "Key: M = Medium Run; E = Easy Run; T = Tempo Run; L = Long Run; R = Recovery Day" << std::endl;
+
+    int n = weeks.size();
+    for(int i = 0; i < n; i++)
+    {
+        Week w = weeks[i];
+        myFile << "Week: " << i << " | Mileage: " << w.getMileage() << std::endl;
+        myFile << w.print() << std::endl;       
+    }
+    myFile.close();
     return 0;
 }

@@ -1,4 +1,5 @@
 #include <iostream>
+#include <fstream>
 #include <string>
 #include <vector>
 
@@ -35,6 +36,6 @@ public:
 
   // methods
   void addDay(); // Add a Day to the week
-  void print(); // Printing method for debug purposes atm.
+  std::string print(); // Printing method to transfer data to .txt file
   int getMileage();
 };

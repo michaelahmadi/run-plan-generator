@@ -104,3 +104,13 @@ int Week::getMileage()
 {
     return mileage;
 }
+
+std::string Week::print()
+{
+    std::string daysInfo;
+    for(Day d : days)
+    {
+        daysInfo = daysInfo + d.getRunType() + " " + std::to_string(d.getMiles()) + "\n"; // ex: "Easy 2\n"
+    }
+    return daysInfo;
+}
