@@ -50,8 +50,6 @@ int main(int argc, char **argv)
     // next, print out contents of the weeks vector a .txt file
     std::ofstream myFile;
     myFile.open("Running Plan.txt");
-    //myFile << "Key: M = Medium Run; E = Easy Run; T = Tempo Run; L = Long Run; R = Recovery Day" << std::endl;
-
     int n = weeks.size();
     for(int i = 0; i < n; i++)
     {
