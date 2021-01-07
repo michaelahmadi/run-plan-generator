@@ -8,7 +8,6 @@ To Use:
 
 and then a file "Running Plan.txt" will be created which contains the generated plan.
 
----
 
 Each week in the plan follows this format: Medium Run, Medium Run, Easy Run, Tempo Run, Easy Run, Long Run, Recovery Day
 
