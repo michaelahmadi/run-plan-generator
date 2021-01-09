@@ -22,4 +22,4 @@ For example, here's the first week in the "Running Plan.txt" file when the curre
     Long 3
     Recovery 0
 
-From there, additional weeks are included until the goal mileage is reached. A sample generated "Running Plan.txt" file is included in the repo; the sample starts at 10 mile week and continues until a 30 mile week.
+From there, additional weeks are included until the goal mileage is reached.
