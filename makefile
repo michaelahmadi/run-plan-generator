@@ -1,14 +1,14 @@
-runPlanGenerator: Day.o Week.o runPlanGenerator.o
-	g++ Day.o Week.o runPlanGenerator.o -o runPlanGenerator
+RunPlanGenerator: Day.o Week.o RunPlanGenerator.o
+	g++ Day.o Week.o RunPlanGenerator.o -o RunPlanGenerator
 
-Day.o: Day.cpp runPlanGenerator.h
+Day.o: Day.cpp RunPlanGenerator.h
 	g++ -c Day.cpp
 
-Week.o: Week.cpp runPlanGenerator.h
+Week.o: Week.cpp RunPlanGenerator.h
 	g++ -c Week.cpp
 
-runPlanGenerator.o: runPlanGenerator.cpp runPlanGenerator.h
-	g++ -c runPlanGenerator.cpp
+RunPlanGenerator.o: RunPlanGenerator.cpp RunPlanGenerator.h
+	g++ -c RunPlanGenerator.cpp
 
 clean:
-	rm Day.o Week.o runPlanGenerator.o runPlanGenerator
+	rm Day.o Week.o RunPlanGenerator.o RunPlanGenerator

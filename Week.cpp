@@ -1,4 +1,4 @@
-#include "runPlanGenerator.h"
+#include "RunPlanGenerator.h"
 
 Week::Week()
 {

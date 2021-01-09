@@ -1,4 +1,4 @@
-#include "runPlanGenerator.h"
+#include "RunPlanGenerator.h"
 
 int main(int argc, char **argv)
 {
