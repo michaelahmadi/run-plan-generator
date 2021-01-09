@@ -9,14 +9,14 @@ int main(int argc, char **argv)
     if(argc < 3) // not enough command line inputs
     {
         std::cout << "Correct Usage: ./runPlanGenerator [startingMileage] [goalMileage]\n";
-        return 0;
+        return 1;
     }
     startingMileage = std::stoi(argv[1]);
     goalMileage = std::stoi(argv[2]);
     if(startingMileage < 10 || goalMileage < 10)
     {
         std::cout << "Please input a starting mileage and goal mileage that are each at least 10 miles\n";
-        return 0;
+        return 1;
     }
     
     std::vector<Week> weeks; // Vector to hold each week generated
